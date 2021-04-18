@@ -1,0 +1,19 @@
+[package]
+name = "libcli-rs"
+version = "0.1.0"
+authors = ["David Ko <dko@suse.com>"]
+edition = "2018"
+
+[dependencies]
+lazy_static = "1.4.0"
+anyhow = "1.0"
+dirs = "3.0"
+serde = { version = "1.0", features = ["derive"] }
+serde_json = { version = "1.0", features = ["preserve_order"] }
+serde_yaml = "0.8"
+prettytable-rs = "0.8"
+Inflector = "*"
+chrono = "0.4"
+regex = "1.4"
+maplit = "1.0"
+indicatif = "0.15.0"
