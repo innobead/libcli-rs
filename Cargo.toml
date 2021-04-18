@@ -3,6 +3,13 @@ name = "libcli-rs"
 version = "0.1.0"
 authors = ["David Ko <dko@suse.com>"]
 edition = "2018"
+description = "libcli-rs, a common library for CLI development"
+keywords = ["cli"]
+categories = ["cli"]
+homepage = "https://github.com/ecatlabs/libcli-rs"
+repository = "https://github.com/ecatlabs/libcli-rs"
+readme = "README.md"
+license-file = "LICENSE"
 
 [dependencies]
 lazy_static = "1.4.0"
