@@ -1,4 +1,4 @@
-![crates.io](https://img.shields.io/crates/v/libcli-rs.svg)
+[![crates.io](https://img.shields.io/crates/v/libcli-rs.svg)](https://crates.io/crates/libcli-rs)
 
 # libcli-rs
 
