@@ -1,3 +1,4 @@
+use std::time::Duration;
 use indicatif::{ProgressBar as PBar, ProgressStyle};
 
 use crate::result::Result;
@@ -17,12 +18,12 @@ pub struct ProgressBar {
 impl ProgressBar {
     pub fn new() -> Self {
         let bar = PBar::new_spinner();
-        bar.enable_steady_tick(80);
+        bar.enable_steady_tick(Duration::from_millis(80));
         bar.set_style(
             ProgressStyle::default_spinner()
                 // https://github.com/sindresorhus/cli-spinners/blob/master/spinners.json
                 .tick_strings(&["⢹", "⢺", "⢼", "⣸", "⣇", "⡧", "⡗", "✔"])
-                .template("{spinner} {msg}"),
+                .template("{spinner} {msg}").unwrap_or(ProgressStyle::default_spinner()),
         );
 
         Self { bar }
@@ -33,13 +34,13 @@ impl ProgressTrait for ProgressBar {
     type ProgressResultType = ();
 
     fn update(&self, msg: &str) -> Result<Self::ProgressResultType> {
-        self.bar.set_message(msg);
+        self.bar.set_message(msg.to_owned());
 
         Ok(())
     }
 
     fn done(&self, msg: &str) -> Result<Self::ProgressResultType> {
-        self.bar.finish_with_message(msg);
+        self.bar.finish_with_message(msg.to_owned());
 
         Ok(())
     }
